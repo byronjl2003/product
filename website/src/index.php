@@ -4,7 +4,7 @@
     </head>
 
     <body>
-        <h1>Inventario :0</h1>
+        <h1>Inventario :0 =</h1>
         <ul>
             <?php
 
