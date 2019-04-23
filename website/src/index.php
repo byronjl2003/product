@@ -4,7 +4,7 @@
     </head>
 
     <body>
-        <h1>Inventario =)</h1>
+        <h1>Inventario =) =s</h1>
         <ul>
             <?php
 
