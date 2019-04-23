@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  product-service:
+    build: ./product
+    image: product-api2 
+    #image: gcr.io/analisis2/product-api:v1
+    #ports:
+    #  - 5001:80
+    links:
+      - pydb
+
+  website:
+    build: ./website
+    image: product-web2
+    #image: gcr.io/analisis2/product-web:v1
+    ports:
+      - 5000:80
+    links:
+      - product-service
+    volumes:
+      - ./website/src/:/var/www/html/:Z
+  pydb:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: productdb
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
+    volumes:
+      - ~/.docker/productcompose/mysql:/var/lib/mysql:Z
+    
+    
